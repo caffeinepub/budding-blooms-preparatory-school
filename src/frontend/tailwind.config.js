@@ -80,6 +80,8 @@ export default {
         "bounce-in": "bounceIn 0.6s ease-out forwards",
         "fade-in-up": "fadeInUp 0.7s ease-out forwards",
         butterfly: "butterfly 6s ease-in-out infinite",
+        "logo-glow": "logoGlow 3s ease-in-out infinite",
+        "pulse-ring": "pulseRing 3s ease-in-out infinite",
       },
     },
   },

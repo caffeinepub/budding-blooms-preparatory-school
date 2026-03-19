@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import About from "./components/About";
+import AdmissionPopup from "./components/AdmissionPopup";
 import Admissions from "./components/Admissions";
 import Contact from "./components/Contact";
 import Facilities from "./components/Facilities";
@@ -29,6 +30,7 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <AdmissionPopup />
       <Toaster position="top-center" richColors />
     </div>
   );

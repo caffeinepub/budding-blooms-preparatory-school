@@ -96,9 +96,11 @@ export default function About() {
           </div>
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-full bg-pinkcoral flex items-center justify-center text-white text-2xl font-black flex-shrink-0 shadow-md">
-                AA
-              </div>
+              <img
+                src="/assets/uploads/e9536f83-21f1-46be-9028-8f495dae3a8d-1-1.jpeg"
+                alt="Adya Ahuja, Principal"
+                className="w-24 h-24 rounded-full object-cover object-top flex-shrink-0 shadow-md border-4 border-pinkcoral"
+              />
               <div>
                 <div className="font-black text-xl">Adya Ahuja</div>
                 <div className="text-sm font-semibold text-foreground/60">

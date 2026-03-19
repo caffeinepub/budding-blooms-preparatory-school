@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 
+const CORNER_SPARKLES = [
+  { top: "-8px", left: "50%", emoji: "⭐", delay: "0s" },
+  { top: "30%", right: "-12px", emoji: "🌼", delay: "0.8s" },
+  { bottom: "-8px", left: "50%", emoji: "✨", delay: "1.6s" },
+  { top: "30%", left: "-12px", emoji: "🌟", delay: "2.4s" },
+];
+
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
 
@@ -127,14 +134,119 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hero real photo collage */}
-        <div className="relative mt-6 rounded-3xl overflow-hidden shadow-hero max-h-96 lg:max-h-[420px]">
-          <img
-            src="/assets/uploads/29483396-bde1-43b9-8a91-6c60f2bb1b59-4.jpeg"
-            alt="Children celebrating Diwali at Budding Blooms Preparatory School"
-            className="w-full h-full object-cover object-top"
-          />
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 flex-wrap justify-center">
+        {/* Logo Showcase */}
+        <div className="flex flex-col items-center mt-4 mb-4">
+          {/* Decorative sparkles above logo */}
+          <div
+            className="flex gap-8 mb-2 pointer-events-none select-none"
+            aria-hidden="true"
+          >
+            <span
+              className="text-2xl animate-spin-slow"
+              style={{ animationDelay: "0s" }}
+            >
+              ✨
+            </span>
+            <span
+              className="text-3xl animate-spin-slow"
+              style={{ animationDelay: "1s" }}
+            >
+              🌟
+            </span>
+            <span
+              className="text-2xl animate-spin-slow"
+              style={{ animationDelay: "2s" }}
+            >
+              ✨
+            </span>
+          </div>
+
+          {/* Logo with glowing rings */}
+          <div className="relative flex items-center justify-center">
+            {/* Outermost glow ring */}
+            <div
+              className="absolute rounded-full animate-pulse-ring"
+              style={{
+                width: "340px",
+                height: "340px",
+                background:
+                  "radial-gradient(circle, oklch(0.95 0.15 90 / 0.4) 0%, transparent 70%)",
+              }}
+            />
+            {/* Middle ring */}
+            <div
+              className="absolute rounded-full border-4 animate-spin-slow opacity-40"
+              style={{
+                width: "290px",
+                height: "290px",
+                borderColor: "oklch(var(--sky-accent))",
+                borderStyle: "dashed",
+              }}
+            />
+            {/* Inner ring */}
+            <div
+              className="absolute rounded-full border-4 opacity-50"
+              style={{
+                width: "256px",
+                height: "256px",
+                borderColor: "oklch(0.8 0.18 55)",
+                boxShadow:
+                  "0 0 30px oklch(0.85 0.2 90 / 0.6), 0 0 60px oklch(0.65 0.2 240 / 0.3)",
+              }}
+            />
+            {/* Logo container */}
+            <div
+              className="relative z-10 rounded-full overflow-hidden border-4 animate-logo-glow"
+              style={{
+                width: "220px",
+                height: "220px",
+                borderColor: "white",
+                boxShadow:
+                  "0 0 0 6px oklch(0.82 0.18 85 / 0.8), 0 0 40px oklch(0.75 0.2 90 / 0.7), 0 0 80px oklch(0.65 0.2 240 / 0.4), 0 20px 60px rgba(0,0,0,0.15)",
+              }}
+            >
+              <img
+                src="/assets/uploads/076ca0b6-f8cd-41aa-bcd3-96215e67aceb-1.jpeg"
+                alt="Budding Blooms Preparatory School Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Corner sparkles */}
+            {CORNER_SPARKLES.map((s) => (
+              <span
+                key={s.emoji}
+                className="absolute text-xl animate-spin-slow pointer-events-none select-none"
+                style={{
+                  top: s.top,
+                  right: s.right,
+                  bottom: s.bottom,
+                  left: s.left,
+                  animationDelay: s.delay,
+                  transform: "translateX(-50%)",
+                }}
+                aria-hidden="true"
+              >
+                {s.emoji}
+              </span>
+            ))}
+          </div>
+
+          {/* School name below logo */}
+          <div className="mt-4 text-center">
+            <p
+              className="text-sm font-black tracking-widest uppercase mb-1"
+              style={{ color: "oklch(var(--sky-accent))" }}
+            >
+              ✦ Established 1999 ✦
+            </p>
+            <p className="text-base font-bold text-foreground/70">
+              Preparatory School &amp; Day Care
+            </p>
+          </div>
+
+          {/* Stats row */}
+          <div className="flex gap-3 sm:gap-5 mt-4 flex-wrap justify-center">
             {[
               { label: "Since", value: "1999", emoji: "🏫" },
               { label: "Years of Excellence", value: "25+", emoji: "⭐" },
@@ -142,7 +254,7 @@ export default function Hero() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 text-center shadow-md"
+                className="bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 text-center shadow-md hover:scale-105 transition-transform"
               >
                 <div className="text-lg" aria-hidden="true">
                   {stat.emoji}

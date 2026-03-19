@@ -2,40 +2,36 @@ import { useEffect, useRef } from "react";
 
 const testimonials = [
   {
-    initials: "PS",
+    photo: "/assets/generated/parent-mom-1.dim_200x200.jpg",
     name: "Priya S.",
     role: "Parent of LKG Student",
     quote:
       "Wonderful environment for kids! My daughter blossoms every day. The teachers are truly exceptional and caring.",
     bg: "bg-pinksoft",
-    avatarBg: "bg-pinkcoral",
   },
   {
-    initials: "RM",
+    photo: "/assets/generated/parent-dad-1.dim_200x200.jpg",
     name: "Rahul M.",
     role: "Parent of Nursery Student",
     quote:
       "My child loves going to school every day! The activity-based approach has made learning so enjoyable for him.",
     bg: "bg-yellowpale",
-    avatarBg: "bg-greendark",
   },
   {
-    initials: "AK",
+    photo: "/assets/generated/parent-mom-2.dim_200x200.jpg",
     name: "Anita K.",
     role: "Parent of UKG Student",
     quote:
       "Best preschool in Sector 4. The learning approach is truly unique and the results are incredible.",
     bg: "bg-mint",
-    avatarBg: "bg-sky-accent",
   },
   {
-    initials: "VT",
+    photo: "/assets/generated/parent-dad-2.dim_200x200.jpg",
     name: "Vikram T.",
     role: "Parent of Playgroup Student",
     quote:
       "The facilities are amazing and the staff is incredibly professional. We couldn't be happier with our choice!",
     bg: "bg-lavender",
-    avatarBg: "bg-pinkcoral",
   },
 ];
 
@@ -80,10 +76,12 @@ export default function Testimonials() {
               data-ocid={`testimonials.item.${i + 1}`}
             >
               {/* Avatar overlapping top */}
-              <div
-                className={`absolute -top-6 left-6 w-14 h-14 rounded-full ${t.avatarBg} flex items-center justify-center text-white font-black text-lg shadow-md`}
-              >
-                {t.initials}
+              <div className="absolute -top-6 left-6 w-14 h-14 rounded-full shadow-md overflow-hidden">
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
               <p className="text-sm font-medium text-foreground/80 leading-relaxed mb-4 italic">
                 &ldquo;{t.quote}&rdquo;
